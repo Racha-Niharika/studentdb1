@@ -1,0 +1,42 @@
+{
+  "name": "studentdb1",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "^1.120.2"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-student": "cds watch --open student/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-courses": "cds watch --open courses/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "fiori":{
+"lean_draft":true,
+"bypass_draft":true
+    
+    },
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      }
+    }
+  },
+  "sapux": [
+    "app/student",
+    "app/courses",
+    "app/student",
+    "app/courses"
+  ]
+}
